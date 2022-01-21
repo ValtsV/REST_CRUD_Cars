@@ -12,12 +12,13 @@ public class CarsApplication {
 
 
 
-		CarFactory car1 = new CarFactory("gas");
-		CarFactory car2 = new CarFactory("hydrogen");
-		CarFactory car3 = new CarFactory("electric");
-		System.out.println(car1.car);
-		System.out.println(car2.car);
-		System.out.println(car3.car);
+
+//		CarFactory car1 = new CarFactory("gas");
+//		CarFactory car2 = new CarFactory("hydrogen");
+//		CarFactory car3 = new CarFactory("electric");
+//		System.out.println(car1.car);
+//		System.out.println(car2.car);
+//		System.out.println(car3.car);
 	}
 
 

@@ -1,14 +1,34 @@
 package com.valts.Cars.Models.Car;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "name")
+@JsonSubTypes({@JsonSubTypes.Type(value = ElectricCar.class, name = "electric"),
+        @JsonSubTypes.Type(value = GasCar.class, name = "gas"),
+        @JsonSubTypes.Type(value = HydrogenCar.class, name = "hydrogen")})
+
 public abstract class Car {
+
+    public String name;
     public String modelName;
     public int doorCount;
     public String color;
 
-    public Car(String modelName, int doorCount, String color) {
+
+    public Car(String name, String modelName, int doorCount, String color) {
+        this.name = name;
         this.modelName = modelName;
         this.doorCount = doorCount;
         this.color = color;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getModelName() {

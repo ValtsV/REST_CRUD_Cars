@@ -14,8 +14,8 @@ public class HydrogenCar extends Car {
     public LithiumBattery lithiumBattery;
     public PowerElectronicController powerElectronicController;
 
-    public HydrogenCar(String modelName, int doorCount, String color, Supercharger supercharger, HydrogenTank hydrogenTank, InternalCombustionEngine internalCombustionEngine, LithiumBattery lithiumBattery, PowerElectronicController powerElectronicController) {
-        super(modelName, doorCount, color);
+    public HydrogenCar(String name, String modelName, int doorCount, String color, Supercharger supercharger, HydrogenTank hydrogenTank, InternalCombustionEngine internalCombustionEngine, LithiumBattery lithiumBattery, PowerElectronicController powerElectronicController) {
+        super(name, modelName, doorCount, color);
         this.supercharger = supercharger;
         this.hydrogenTank = hydrogenTank;
         this.internalCombustionEngine = internalCombustionEngine;
@@ -66,7 +66,8 @@ public class HydrogenCar extends Car {
     @Override
     public String toString() {
         return "HydrogenCar{" +
-                "modelName='" + modelName + '\'' +
+                "name='" + name + '\'' +
+                ", modelName='" + modelName + '\'' +
                 ", doorCount=" + doorCount +
                 ", color='" + color + '\'' +
                 ", supercharger=" + supercharger +
