@@ -9,11 +9,11 @@ public class CarFactory {
 
     public CarFactory(String carType, Car carObject) {
         if (carType.equalsIgnoreCase("gas")) {
-                car = new CarFacade().getGasCar(carType, carObject.modelName,carObject.doorCount,carObject.color);
+                car = new CarFacade().getGasCar(carObject.name, carObject.modelName,carObject.doorCount,carObject.color);
         } else if (carType.equalsIgnoreCase("electric")) {
-            car = new CarFacade().getElectricCar(carType, carObject.modelName,carObject.doorCount,carObject.color);
+            car = new CarFacade().getElectricCar(carObject.name, carObject.modelName,carObject.doorCount,carObject.color);
         } else {
-            car = new CarFacade().getHybridCar(carType, carObject.modelName,carObject.doorCount,carObject.color);
+            car = new CarFacade().getHybridCar(carObject.name, carObject.modelName,carObject.doorCount,carObject.color);
 
         }
 

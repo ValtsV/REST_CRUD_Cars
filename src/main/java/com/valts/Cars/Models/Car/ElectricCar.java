@@ -6,14 +6,16 @@ import com.valts.Cars.Models.CarComponents.ElectricConverter.PowerElectronicCont
 import com.valts.Cars.Models.CarComponents.Motor.ElectricMotor;
 
 
-@JsonTypeName("electric")
+//@JsonTypeName("electric")
 public class ElectricCar extends Car {
 
     public LithiumBattery lithiumBattery;
     public ElectricMotor electricMotor;
     public PowerElectronicController powerElectronicController;
 
-    public ElectricCar(String name, String modelName, int doorCount, String color, LithiumBattery lithiumBattery, ElectricMotor electricMotor, PowerElectronicController powerElectronicController) {
+
+
+        public ElectricCar(String name, String modelName, int doorCount, String color, LithiumBattery lithiumBattery, ElectricMotor electricMotor, PowerElectronicController powerElectronicController) {
         super(name ,modelName, doorCount, color);
         this.lithiumBattery = lithiumBattery;
         this.electricMotor = electricMotor;

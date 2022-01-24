@@ -14,7 +14,9 @@ public class HydrogenCar extends Car {
     public LithiumBattery lithiumBattery;
     public PowerElectronicController powerElectronicController;
 
-    public HydrogenCar(String name, String modelName, int doorCount, String color, Supercharger supercharger, HydrogenTank hydrogenTank, InternalCombustionEngine internalCombustionEngine, LithiumBattery lithiumBattery, PowerElectronicController powerElectronicController) {
+
+
+        public HydrogenCar(String name, String modelName, int doorCount, String color, Supercharger supercharger, HydrogenTank hydrogenTank, InternalCombustionEngine internalCombustionEngine, LithiumBattery lithiumBattery, PowerElectronicController powerElectronicController) {
         super(name, modelName, doorCount, color);
         this.supercharger = supercharger;
         this.hydrogenTank = hydrogenTank;

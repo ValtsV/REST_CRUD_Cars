@@ -32,19 +32,20 @@ public class CarService {
         return carList;
     }
 
-    public void update(Car newCar) {
-        int index;
+    public void update(String modelName, Car newCar) {
+        int index = 0;
         for (Car car : carList) {
-            if (car.modelName.equalsIgnoreCase(newCar.modelName)) {
+            if (car.modelName.equalsIgnoreCase(modelName)) {
                 index = carList.indexOf(car);
-                carList.add(index, newCar);
+
             } else {
 //                TODO throw error
             }
         }
+        carList.add(index, newCar);
     }
 
-    public void delete(String name){
+    public void deleteOne(String name){
         for (Car car : carList) {
             if (car.modelName.equalsIgnoreCase(name)) {
                 carList.remove(car);
