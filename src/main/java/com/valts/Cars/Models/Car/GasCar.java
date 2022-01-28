@@ -5,7 +5,6 @@ import com.valts.Cars.Models.CarComponents.AirInjection.Supercharger;
 import com.valts.Cars.Models.CarComponents.FuelTank.PetrolTank;
 import com.valts.Cars.Models.CarComponents.Motor.InternalCombustionEngine;
 
-//@JsonTypeName("gasCar")
 public class GasCar extends Car{
 
     public Supercharger supercharger;
@@ -17,16 +16,6 @@ public class GasCar extends Car{
         this.supercharger = supercharger;
         this.petrolTank = petrolTank;
         this.internalCombustionEngine = internalCombustionEngine;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Supercharger getSupercharger() {

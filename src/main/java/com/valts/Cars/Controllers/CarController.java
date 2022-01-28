@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.net.URI;
-import java.util.List;
+import java.util.*;
 
 @Component
 @Path("/")
@@ -36,6 +36,7 @@ public class CarController {
     @Path("/cars/{carName}")
     @Produces("application/json")
     public Response getOne(@PathParam("carName") String name) {
+        System.out.println(carService.getOne(name));
         return Response.status(Response.Status.OK).entity(carService.getOne(name)).build();
     }
 
@@ -46,7 +47,7 @@ public class CarController {
     @Produces("application/json")
     @Consumes("application/json")
     public Response add(@PathParam("carType") String carType, Car car) {
-        System.out.println(car);
+//        System.out.println(car);
 //        TODO check if modelName exists already
         CarFactory carFactory = new CarFactory(carType, car);
         carService.add(carFactory.car);
@@ -59,7 +60,7 @@ public class CarController {
     @Produces("application/json")
     @Consumes("application/json")
     public Response update(Car car, @PathParam("modelName") String modelName) {
-        System.out.println(car);
+//        System.out.println(car);
         carService.update(modelName, car);
         return Response.created(URI.create(URL + PORT + car.modelName)).build();
     }
@@ -80,5 +81,24 @@ public class CarController {
     public Response deleteAll() {
         return Response.status(Response.Status.OK).build();
     }
+
+
+//    SEARCH
+
+    @GET
+    @Path("cars/search")
+    @Produces("application/json")
+    public Response searchCars(@QueryParam("color") List<String> color,
+                               @QueryParam("name") List<String> name,
+                               @QueryParam("doorcount") List<Integer> doorCount,
+                                   @QueryParam("modelname") List<String> modelName){
+
+        List<Car> carList = carService.searchCars(name, modelName, color, doorCount);
+        if (carList.isEmpty()) {
+            return Response.status(Response.Status.NO_CONTENT).build();
+        }
+        return Response.status(Response.Status.OK).entity(carList).build();
+    }
+
 
 }
